@@ -1,3 +1,9 @@
 live-boot
 live-config
 live-config-systemd
+build-essential
+make
+gcc
+linux-source
+linux-headers-amd64
+dkms

@@ -1,0 +1,26 @@
+#!/bin/sh
+
+#
+# Compile non-free nvidia shiz as dkms module
+#
+# Unsure how to disable loading the kernel module after its built, currently hooking any failures
+#
+
+set -e
+
+URL='http://us.download.nvidia.com/XFree86/Linux-x86_64/390.87/NVIDIA-Linux-x86_64-390.87.run'
+wget -O /tmp/nvidia.run ${URL}
+chmod 0755 /tmp/nvidia.run
+
+# yolo
+echo 'Building with the following information':
+
+apt-cache policy linux-headers-amd64 linux-source
+
+
+echo; echo;
+
+/bin/bash /tmp/nvidia.run -s \
+				--dkms \
+				--kernel-source-path=/lib/modules/$(uname -r)/source  || echo "lol, if this failed trying to live load the kernel ignore."
+
