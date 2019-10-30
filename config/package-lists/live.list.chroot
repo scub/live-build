@@ -7,3 +7,10 @@ gcc
 linux-source
 linux-headers-amd64
 dkms
+git-core
+vim
+syslinux
+initramfs-tools
+curl
+desktop-base
+desktop-file-utils

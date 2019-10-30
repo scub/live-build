@@ -9,17 +9,15 @@ set -e
 # PXE Boot Image
 BINARY_IMAGE_TYPE="netboot"
 
-# ISO Image
-BINARY_IMAGE_TYPE="iso-hybrid"
-
-
-lb config noauto 					\
-	--mode debian					\
-	--distribution stretch				\
-	--binary-images ${BINARY_IMAGE_TYPE}		\
-	--architectures amd64 				\
-	--debian-installer false 			\
+lb config noauto 					                  \
+	--mode debian					                    \
+	--distribution buster	   			            \
+	--binary-images ${BINARY_IMAGE_TYPE}		  \
+  --bootloaders 'syslinux'                  \
+	--architectures amd64 				            \
 	--archive-areas "main contrib non-free" 	\
-	--apt-indices false				\
-	--memtest none					\
+	--debian-installer false 			            \
+  --net-tarball true                        \
+	--apt-indices false				                \
+	--memtest none					                  \
 	"${@}"

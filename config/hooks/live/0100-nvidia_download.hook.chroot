@@ -9,7 +9,7 @@
 set -e
 
 URL='http://us.download.nvidia.com/XFree86/Linux-x86_64/390.87/NVIDIA-Linux-x86_64-390.87.run'
-wget -O /tmp/nvidia.run ${URL}
+curl -Lo /tmp/nvidia.run ${URL}
 chmod 0755 /tmp/nvidia.run
 
 # yolo
